@@ -68,7 +68,7 @@ resource "aws_volume_attachment" "volume_attachment" {
 resource "aws_instance" "splunk" {
   ami             = "ami-0cff7528ff583bf9a"
   instance_type   = "t2.micro"
-  key_name        = "${aws_key_pair.my-key.key_name}"
+  key_name        = aws_key_pair.my-key.key_name
   security_groups = ["${aws_security_group.allow_tls.name}"]
   tags = {
     Name = "indexer"
